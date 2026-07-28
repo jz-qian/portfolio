@@ -1,0 +1,657 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyce Qian - Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+  <!-- Dark mode toggle -->
+  <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+    <span class="sun-icon" style="display: flex;">☀</span>
+    <span class="moon-icon" style="display: none;">☾</span>
+  </button>
+
+  <!-- Main container -->
+  <div class="container">
+    <!-- 3D Blob Canvas -->
+    <canvas id="blob-canvas"></canvas>
+
+    <!-- Header section with portrait and info -->
+    <div class="header-section">
+      <!-- Portrait box -->
+      <div class="portrait-container fade-in">
+        <div class="portrait-box">
+          <img src="assets/headshot.jpg" alt="Joyce Qian" class="portrait-image">
+        </div>
+      </div>
+
+      <!-- Info section -->
+      <div class="info-section">
+        <h1 class="fade-in stagger-1">Hi, I'm Joyce.</h1>
+        <div class="subtitle fade-in stagger-2">I design creative, empathetic solutions for the next generation of
+          users.</div>
+
+
+        <div class="details-grid fade-in stagger-4">
+          <div class="detail-block">
+            <div class="detail-label">Education</div>
+            <div class="detail-content">
+              <i class="fa-solid fa-graduation-cap"></i>
+              University of Texas at Austin
+              <br />
+              BA, Economics and Political Science, Plan II
+              Honors
+            </div>
+            <div class="detail-date">2023 - 2027</div>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">Contact</div>
+            <div class="detail-content">
+              <a href="mailto:jzq63@my.utexas.edu" class="email-link" id="emailLink"><i
+                  class="fa-regular fa-envelope"></i><span id="emailText">jzq63@my.utexas.edu</span></a>
+              <span class="separator">·</span>
+              <a href="https://linkedin.com/in/joycequian" target="_blank"><i class="fa-brands fa-linkedin"></i>
+                LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio intro -->
+    <div class="portfolio-intro fade-in stagger-5">
+      I combine my deep knowledge of digital and youth culture with economic and political research to create
+      user-centered solutions.
+
+      Explore selected case studies below:
+    </div>
+
+    <!-- Project folders -->
+    <div class="folders-container">
+      <!-- UT Lectures Plus Folder -->
+      <div class="folder fade-in stagger-6" data-project="ut-lectures">
+        <div class="folder-content">
+          <div class="folder-preview">
+            <img src="assets/utlp_landing_updated.jpeg" alt="UT Lectures Plus Preview">
+          </div>
+          <div class="folder-description">
+            Redesigned a lecture captioning extension for 50,000+ UT Austin students through user-centered research,
+            reducing navigation time by 2 minutes and doubling adoption.
+          </div>
+        </div>
+        <div class="folder-tab">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>UT LECTURES PLUS</span>
+        </div>
+      </div>
+
+      <!-- CSA Crimson Folder -->
+      <div class="folder fade-in stagger-7" data-project="csa-crimson">
+        <div class="folder-content">
+          <div class="folder-preview">
+            <img src="assets/ccb_practice.jpeg" alt="CSA Crimson Preview">
+          </div>
+          <div class="folder-description">
+            Founded and scaled a beginner-friendly dance community, managing the full creative pipeline from concept to
+            distribution and building engagement across social platforms.
+          </div>
+        </div>
+        <div class="folder-tab">
+          <i class="fa-solid fa-music"></i>
+          <span>CSA CRIMSON</span>
+        </div>
+      </div>
+
+      <!-- NATO Folder -->
+      <div class="folder fade-in stagger-8" data-project="nato">
+        <div class="folder-content">
+          <div class="folder-preview">
+            <img src="assets/training_modules.png" alt="NATO Competition Preview">
+          </div>
+          <div class="folder-description">
+            Won NATO competition ($500 prize) by designing a scalable framework to combat AI-driven disinformation
+            campaigns.
+          </div>
+        </div>
+        <div class="folder-tab">
+          <i class="fa-solid fa-globe"></i>
+          <span>NATO × WMGIC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project detail modals -->
+  <!-- UT Lectures Plus Modal -->
+  <div id="modal-ut-lectures" class="modal" data-project="ut-lectures">
+    <button class="modal-close" aria-label="Close modal">×</button>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-tab">UT LECTURES PLUS</div>
+        <h2 class="modal-title">UT Lectures Plus</h2>
+        <p class="modal-description">A lecture captioning extension developed for UT Austin's lecture video recording
+          systems, LecturesOnline and TowerLA.</p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-meta">
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">Fall 2024 - Present</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Team</div>
+            <div class="meta-value">3 Product Managers, 5 Designers</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Tools</div>
+            <div class="meta-value">Figma, Chrome Extensions API, User Research</div>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Problem</h3>
+            <p>UT Lectures Plus required a redesign to better reflect its purpose as an accessibility-focused extension
+              giving students greater control over how they study.</p>
+          </div>
+          <div class="modal-section">
+            <h3>Process</h3>
+            <p>I led a 3-person product management team and a 5-person design team through an overhaul of our studying
+              extension. The product team's research surfaced a clear pattern: students were abandoning lectures they
+              couldn't quickly navigate back into. I used that finding to set priorities for the design team, then
+              worked with them directly to translate it into the redesign.</p>
+          </div>
+        </div>
+
+        <div class="content-with-images">
+          <div class="content-text">
+            <h3>Lecture Landing Page</h3>
+            <p>I identified two core problems: students couldn't tell what content a lecture covered, and the naming
+              convention was hard to parse. I directed the design team through a fix, adding custom lecture titles and
+              replacing the list view with video previews.</p>
+          </div>
+          <div class="content-images">
+            <div class="image-with-caption">
+              <img src="assets/utlp_landing_original.jpeg" alt="UT Lectures Plus Before">
+              <span class="image-caption">before</span>
+            </div>
+            <div class="image-with-caption">
+              <img src="assets/utlp_landing_updated.jpeg" alt="UT Lectures Plus After">
+              <span class="image-caption">after</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-with-images">
+          <div class="content-text">
+            <h3>Video Player</h3>
+            <p>Testing showed over 75% of users left the default settings to make manual adjustments, a strong signal
+              the interface wasn't meeting their needs out of the box. I led the design team to add custom captions,
+              automatic chaptering, and bookmarking. Caption customization, which was a novel feature I introduced,
+              became a key feature students used regularly.</p>
+          </div>
+          <div class="content-images">
+            <div class="image-with-caption">
+              <img src="assets/utlp_video_original.jpeg" alt="UT Lectures Plus Video Before">
+              <span class="image-caption">before</span>
+            </div>
+            <div class="image-with-caption">
+              <img src="assets/utlp_video_updated.jpeg" alt="UT Lectures Plus Video After">
+              <span class="image-caption">after</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Outcome</h3>
+            <div class="outcome-content">
+              <div class="outcome-video">
+                <video controls preload="metadata">
+                  <source src="assets/utlp_demo_short.mp4" type="video/mp4">
+                  <p>Your browser does not support HTML5 video. <a href="assets/utlp_demo_short.mp4"
+                      target="_blank">Download the video</a> instead.</p>
+                </video>
+              </div>
+              <div class="outcome-text">
+                <p>In testing, users located the correct lecture two minutes faster than with the original design.
+                  Following the release, downloads doubled and user engagement increased significantly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-nav">
+          <button class="nav-button" disabled>← <span class="nav-label"></span></button>
+          <button class="nav-button" data-target="csa-crimson"><span class="nav-label">CSA CRIMSON</span> →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CSA Crimson Modal -->
+  <div id="modal-csa-crimson" class="modal" data-project="csa-crimson">
+    <button class="modal-close" aria-label="Close modal">×</button>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-tab">CSA CRIMSON</div>
+        <h2 class="modal-title">CSA Crimson</h2>
+        <p class="modal-description">A beginner-friendly dance team where students learn and film dances taught and
+          produced by other students.</p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-meta">
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">Fall 2023 - Present</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Team</div>
+            <div class="meta-value">Co-founder with 5 other students</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Tools</div>
+            <div class="meta-value">Production, Choreography, Community Management</div>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Overview</h3>
+            <p>I lead the entire filming process from planning through post-production, releasing a new video every
+              month following a strict one-month timeline from teaching to release.</p>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Teaching</h3>
+            <p>Before I begin organizing dancers, I select several song options for our team members to choose from, and
+              it goes to a vote. Once the song is decided, I schedule our practices over the next two weeks.</p>
+          </div>
+        </div>
+
+        <div class="single-image-container">
+          <img src="assets/ccb_practice.jpeg" alt="CSA Crimson Community">
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Filming</h3>
+            <p>First, I reach out to videographers to find availability and a filming location. Second, I coordinate
+              with our 7-8 dancers to find the best time, taking into account their schedules and the time of day I want
+              to film.</p>
+          </div>
+        </div>
+
+        <div class="content-images">
+          <div class="image-with-caption">
+            <img src="assets/location_2.jpg" alt="CSA Production 1">
+          </div>
+          <div class="image-with-caption">
+            <img src="assets/greg_gym.jpeg" alt="CSA Production 2">
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Storyboarding</h3>
+            <p>Once filming is scheduled, I focus on filming logistics, particularly storyboarding the final cover. I
+              provide the videographer with a storyboard, a shot list, and reference videos, giving them a clear picture
+              of the angles and shots I want at each point in the song.</p>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Post-Production</h3>
+            <p>After filming day, I personally edit each video. From over a hundred clips, I select the shot that best
+              fits each section of the song, choosing takes that match the final vision and can be cut together into one
+              cohesive video.</p>
+          </div>
+        </div>
+
+        <div class="single-image-container">
+          <img src="assets/editing_photo.jpeg" alt="CSA Editing Process">
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Release</h3>
+            <p>I oversee the release process, making sure our editing team works quickly and closely with our publicity
+              team so each video goes out on time, with a coordinated social media post, tracking deadlines to keep a
+              consistent monthly release schedule.</p>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Outcome</h3>
+            <div class="outcome-content">
+              <div class="outcome-video">
+                <video controls preload="metadata">
+                  <source src="assets/ccb_short.mp4" type="video/mp4">
+                  <p>Your browser does not support HTML5 video. <a href="assets/ccb_short.mp4" target="_blank">Download
+                      the video</a> instead.</p>
+                </video>
+              </div>
+              <div class="outcome-text">
+                <p>I track the success of each video and the satisfaction of each dancer via surveys. I use this
+                  information to provide a wider variety of opportunities to the team, ensuring 100% of our team members
+                  are able to participate and enjoy their experience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-nav">
+          <button class="nav-button" data-target="ut-lectures">← <span class="nav-label">UT LECTURES
+              PLUS</span></button>
+          <button class="nav-button" data-target="nato"><span class="nav-label">NATO × WMGIC COMPETITION</span>
+            →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NATO Modal -->
+  <div id="modal-nato" class="modal" data-project="nato">
+    <button class="modal-close" aria-label="Close modal">×</button>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-tab">NATO × WMGIC</div>
+        <h2 class="modal-title">NATO × WMGIC Competition</h2>
+        <p class="modal-description">Competitors were asked to design a solution to disinformation within a category
+          such as AI, Clean Energy, Public Health, or Terrorism.</p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-meta">
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">Fall 2024</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Team</div>
+            <div class="meta-value">4-person team, 2-hour time limit</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Tools</div>
+            <div class="meta-value">Strategic Planning, Policy Analysis, Cost-Benefit Analysis</div>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Problem</h3>
+            <p>AI-created bots and deepfakes were playing a gradually expanding role in foreign actors' disinformation
+              campaigns. I had to find a solution for NATO to combat the proliferation of disinformation online.</p>
+          </div>
+          <div class="modal-section">
+            <h3>Process</h3>
+            <p>Working within a strict two-hour time limit, I adapted NATO's existing Locked Shields cyber defense
+              exercises to the disinformation problem, allowing my team to move efficiently in the competition without
+              sacrificing rigor.</p>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Solution</h3>
+            <p>From this foundation, I identified two core requirements and structured the solution around them. The
+              first was a training exercise pairing member states sharing best practices against disinformation with a
+              designated red team generating AI-driven disinformation, giving participants firsthand experience with
+              both sides of the problem.</p>
+          </div>
+        </div>
+
+        <div class="single-image-container">
+          <img src="assets/training_modules.png" alt="NATO Training Framework">
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Public Education</h3>
+            <p>The second requirement was a public-facing training initiative, incorporating social media campaigns and
+              gamified tools, equipping member countries to run a coordinated public education strategy on identifying
+              disinformation.</p>
+          </div>
+        </div>
+
+        <div class="modal-sections">
+          <div class="modal-section">
+            <h3>Results</h3>
+            <p>The result was a complete submission including an implementation plan, cost-benefit analysis, and
+              sustainability analysis, built around a low-cost, scalable solution adapted from an existing NATO
+              framework and delivered within our two-hour constraint. Grand prize: $500.</p>
+          </div>
+        </div>
+
+        <div class="modal-nav">
+          <button class="nav-button" data-target="csa-crimson">← <span class="nav-label">CSA CRIMSON</span></button>
+          <button class="nav-button" disabled><span class="nav-label"></span> →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+
+
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+
+
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+
+
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+</body>
